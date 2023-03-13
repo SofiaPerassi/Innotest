@@ -2,9 +2,17 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.1.
 
+## Dependencies
+
+Go to the Innotest folder and open the console. Run command  `npm install` to install all dependencies.
+
+## Json server
+
+Go to src/assets/data and run `npx json-server --watch db.json` to start the mock api. 
+
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Inside the innotest folder, run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 

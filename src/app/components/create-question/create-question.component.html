@@ -1,0 +1,61 @@
+<div mat-dialog-title>
+    <h1>Formulario de Pregunta</h1>
+</div>
+<form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Enunciado</mat-label>
+                <input matInput type="text" placeholder="Escribe tu enunciado aqui" formControlName="content" required>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-radio-group aria-label="Bloque" formControlName="bloque" required>
+                <mat-label><b>Bloque</b></mat-label>
+                <div class="row">
+                    <mat-radio-button value="1">Ortografía</mat-radio-button>
+                    <mat-radio-button value="2">Conocimientos</mat-radio-button>
+                    <mat-radio-button value="3">Inglés</mat-radio-button>
+                    <mat-radio-button value="4">Psicotécnicos</mat-radio-button>
+                    <mat-radio-button value="5">Ex. Oficiales</mat-radio-button>
+                    <mat-radio-button value="6">Supuestos</mat-radio-button>
+                </div>
+            </mat-radio-group>
+        </div>
+
+        <div class="row">
+            <section class="example-section">
+                <h4>Oposiciones:</h4>
+                <div *ngFor="let oposicion of oposiciones">
+                    <p>
+                        <mat-checkbox 
+                        formControlName="oposicion" 
+                        [(ngModel)]="oposicion.isselected"
+                        required>{{oposicion.name}}
+                        </mat-checkbox>
+                    </p>
+                </div>
+            </section>
+
+            <section class="example-section">
+                <h4>Test:</h4>
+                <div *ngFor="let test of tests">
+                    <p>
+                        <mat-checkbox 
+                        formControlName="test" 
+                        [(ngModel)]="test.isselected"
+                        required>{{test.name}}
+                        </mat-checkbox>
+                    </p>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancelar</button>
+        <button mat-raised-button color="primary" 
+        type="submit" 
+        [disabled]="createForm.invalid">Aceptar</button>
+    </div>
+</form>
